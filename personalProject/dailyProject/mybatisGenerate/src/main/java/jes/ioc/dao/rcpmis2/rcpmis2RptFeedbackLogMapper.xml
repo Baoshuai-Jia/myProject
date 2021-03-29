@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="jes.ioc.dao.rcpmis2.rcpmis2RptFeedbackLogMapper" >
+  <resultMap id="BaseResultMap" type="jes.ioc.entity.rcpmis2.rcpmis2RptFeedbackLog" >
+    <result column="ORIMSGNO" property="orimsgno" jdbcType="VARCHAR" />
+    <result column="ORISENDORGCODE" property="orisendorgcode" jdbcType="VARCHAR" />
+    <result column="ORIENTRUSTDATE" property="orientrustdate" jdbcType="VARCHAR" />
+    <result column="ORIPACKNO" property="oripackno" jdbcType="VARCHAR" />
+    <result column="ALLNUM" property="allnum" jdbcType="VARCHAR" />
+    <result column="ALLAMT" property="allamt" jdbcType="VARCHAR" />
+    <result column="SUCCNUM" property="succnum" jdbcType="VARCHAR" />
+    <result column="SUCCAMT" property="succamt" jdbcType="VARCHAR" />
+    <result column="FAILNUM" property="failnum" jdbcType="VARCHAR" />
+    <result column="FAILAMT" property="failamt" jdbcType="VARCHAR" />
+    <result column="ADDWORD" property="addword" jdbcType="VARCHAR" />
+    <result column="PROCESS_COUNT" property="processCount" jdbcType="VARCHAR" />
+    <result column="FILENAME" property="filename" jdbcType="VARCHAR" />
+    <result column="SUBLIST_KEY" property="sublistKey" jdbcType="VARCHAR" />
+  </resultMap>
+  <insert id="insert" parameterType="jes.ioc.entity.rcpmis2.rcpmis2RptFeedbackLog" >
+    insert into RCPMIS2_RPT_FEEDBACK_LOG (ORIMSGNO, ORISENDORGCODE, ORIENTRUSTDATE, 
+      ORIPACKNO, ALLNUM, ALLAMT, 
+      SUCCNUM, SUCCAMT, FAILNUM, 
+      FAILAMT, ADDWORD, PROCESS_COUNT, 
+      FILENAME, SUBLIST_KEY)
+    values (#{orimsgno,jdbcType=VARCHAR}, #{orisendorgcode,jdbcType=VARCHAR}, #{orientrustdate,jdbcType=VARCHAR}, 
+      #{oripackno,jdbcType=VARCHAR}, #{allnum,jdbcType=VARCHAR}, #{allamt,jdbcType=VARCHAR}, 
+      #{succnum,jdbcType=VARCHAR}, #{succamt,jdbcType=VARCHAR}, #{failnum,jdbcType=VARCHAR}, 
+      #{failamt,jdbcType=VARCHAR}, #{addword,jdbcType=VARCHAR}, #{processCount,jdbcType=VARCHAR}, 
+      #{filename,jdbcType=VARCHAR}, #{sublistKey,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="jes.ioc.entity.rcpmis2.rcpmis2RptFeedbackLog" >
+    insert into RCPMIS2_RPT_FEEDBACK_LOG
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="orimsgno != null" >
+        ORIMSGNO,
+      </if>
+      <if test="orisendorgcode != null" >
+        ORISENDORGCODE,
+      </if>
+      <if test="orientrustdate != null" >
+        ORIENTRUSTDATE,
+      </if>
+      <if test="oripackno != null" >
+        ORIPACKNO,
+      </if>
+      <if test="allnum != null" >
+        ALLNUM,
+      </if>
+      <if test="allamt != null" >
+        ALLAMT,
+      </if>
+      <if test="succnum != null" >
+        SUCCNUM,
+      </if>
+      <if test="succamt != null" >
+        SUCCAMT,
+      </if>
+      <if test="failnum != null" >
+        FAILNUM,
+      </if>
+      <if test="failamt != null" >
+        FAILAMT,
+      </if>
+      <if test="addword != null" >
+        ADDWORD,
+      </if>
+      <if test="processCount != null" >
+        PROCESS_COUNT,
+      </if>
+      <if test="filename != null" >
+        FILENAME,
+      </if>
+      <if test="sublistKey != null" >
+        SUBLIST_KEY,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="orimsgno != null" >
+        #{orimsgno,jdbcType=VARCHAR},
+      </if>
+      <if test="orisendorgcode != null" >
+        #{orisendorgcode,jdbcType=VARCHAR},
+      </if>
+      <if test="orientrustdate != null" >
+        #{orientrustdate,jdbcType=VARCHAR},
+      </if>
+      <if test="oripackno != null" >
+        #{oripackno,jdbcType=VARCHAR},
+      </if>
+      <if test="allnum != null" >
+        #{allnum,jdbcType=VARCHAR},
+      </if>
+      <if test="allamt != null" >
+        #{allamt,jdbcType=VARCHAR},
+      </if>
+      <if test="succnum != null" >
+        #{succnum,jdbcType=VARCHAR},
+      </if>
+      <if test="succamt != null" >
+        #{succamt,jdbcType=VARCHAR},
+      </if>
+      <if test="failnum != null" >
+        #{failnum,jdbcType=VARCHAR},
+      </if>
+      <if test="failamt != null" >
+        #{failamt,jdbcType=VARCHAR},
+      </if>
+      <if test="addword != null" >
+        #{addword,jdbcType=VARCHAR},
+      </if>
+      <if test="processCount != null" >
+        #{processCount,jdbcType=VARCHAR},
+      </if>
+      <if test="filename != null" >
+        #{filename,jdbcType=VARCHAR},
+      </if>
+      <if test="sublistKey != null" >
+        #{sublistKey,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

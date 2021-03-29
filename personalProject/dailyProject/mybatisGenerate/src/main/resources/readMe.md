@@ -1,0 +1,1 @@
+maven 运行命令   ```mybatis-generator:generate -e```

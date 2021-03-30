@@ -1,6 +1,5 @@
 package com.jia.jiase.chapterOne;
 
-import com.sun.applet2.Applet2;
 import org.junit.Test;
 
 import java.util.ArrayList;

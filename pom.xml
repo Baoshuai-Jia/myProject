@@ -17,7 +17,7 @@
         <module>jiaApi</module>
         <module>myTool</module>
         <module>files</module>
-        <module>picture</module>
+<!--        <module>picture</module>-->
         <module>files/picture</module>
     </modules>
 

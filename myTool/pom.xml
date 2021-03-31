@@ -11,5 +11,14 @@
 
     <artifactId>myTool</artifactId>
 
+    <dependencies>
+        <!--        导入excel-->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>3.15</version>
+        </dependency>
+        <!--导入excel-->
+    </dependencies>
 
 </project>

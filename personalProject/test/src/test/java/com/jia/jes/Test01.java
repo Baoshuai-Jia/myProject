@@ -9,7 +9,7 @@ import org.junit.Test;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Test01 {
+public class Test01 implements Cloneable{
 
     //vscode
     @Test

@@ -19,6 +19,9 @@
         <module>files</module>
 <!--        <module>picture</module>-->
         <module>files/picture</module>
+        <module>go</module>
+        <module>learn/SpringbootLearn</module>
+        <module>learn/SpringbootLearn/boot-01-helloworld</module>
     </modules>
 
     <properties>

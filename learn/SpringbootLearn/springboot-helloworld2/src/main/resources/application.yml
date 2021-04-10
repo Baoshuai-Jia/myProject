@@ -1,0 +1,26 @@
+person:
+  userName: "zhangshan \n wendy"
+  # 单引号 \n 会作为字符串输出；双引号 \n 会作为换行符;  单引号会转义，双引号不会转义
+  boss: true
+  birth: 2019/02/02
+  age: 18
+#  interests: [篮球，羽毛球，足球]
+  interests:
+    - 篮球
+    - 足球
+  animal: [ 阿猫，阿狗]
+  score: {englist:80, math:90}
+  salarys: [9999.99,9999.08]
+  pet:
+    name: dog
+    weight: 20.02
+  allPets:
+    sick:
+      - {name: 阿狗,weight: 20.22}
+      - name: 阿喵
+        weight: 2.02
+      - name: 小蛇
+        weight: 1.01
+    heath:
+      - {name: 阿🌹,weight: 20.22}
+

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello</title>
+</head>
+<body>
+<h1>welcome springboot !</h1>
+
+<!--rest请求的页面-->
+<form action="/user" method="get">
+    <input value="REST-GET" type="submit" >
+</form>
+<form action="/user" method="post">
+    <input value="REST-POST" type="submit" >
+</form>
+<form action="/user" method="post">
+    <input name="_method" type="hidden" value="DELETE">
+    <input value="REST-DELETE" type="submit" >
+</form>
+<form action="/user" method="post">
+    <input name="_method" type="hidden" value="DELETE">
+    <input value="REST-PUT" type="submit" >
+</form>
+<!--rest请求的页面-->
+
+<hr/>
+<ul>
+    <a href="/car/1/owner/lisi?age=18">/car/{id}/owner/{userName}</a>
+    <ui>@PathVariable(路径变量)</ui>
+
+    <br/>
+    <a href="/cars/shell;low=34;brand=byd,audi,yd">@MatrixVariable 测试</a>
+    <ui>@MatrixVariable(矩阵变量)</ui>
+</ul>
+
+<form action="/save", method="post">
+    测试@ResponseBody获取参数；该注解可以批量获取form表单提交的数据
+    用户名：<input name="username">
+    密码：<input name="email">
+    <input type="submit">
+</form>
+
+</body>
+</html>

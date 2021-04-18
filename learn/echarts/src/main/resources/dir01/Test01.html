@@ -7,9 +7,13 @@
 </head>
 <body>
 <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
-<div id="main" style="width: 600px;height:400px;"></div>
+<div id="main" ></div>
 <script type="text/javascript">
     // 基于准备好的dom，初始化echarts实例
+    let mainDiv = document.getElementById('main');
+
+debugger
+    mainDiv.style.height = window.innerHeight+'px';
     var myChart = echarts.init(document.getElementById('main'));
 
     // 指定图表的配置项和数据

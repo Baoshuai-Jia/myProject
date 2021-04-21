@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="jes.ioc.dao.dna2.Dna2MetaDataInfoMapper" >
+  <resultMap id="BaseResultMap" type="jes.ioc.entity.dna2.Dna2MetaDataInfo" >
+    <id column="PRIMARY_KEY" property="primaryKey" jdbcType="VARCHAR" />
+    <result column="META_CODE" property="metaCode" jdbcType="VARCHAR" />
+    <result column="DATA_NAME" property="dataName" jdbcType="VARCHAR" />
+    <result column="DATA_US_NAME" property="dataUsName" jdbcType="VARCHAR" />
+    <result column="RESP_DEPT" property="respDept" jdbcType="VARCHAR" />
+    <result column="META_TYPE" property="metaType" jdbcType="VARCHAR" />
+    <result column="DATA_DESC" property="dataDesc" jdbcType="VARCHAR" />
+    <result column="META_LEN" property="metaLen" jdbcType="VARCHAR" />
+    <result column="DECIMAL_DIGITS" property="decimalDigits" jdbcType="VARCHAR" />
+    <result column="IS_NULL" property="isNull" jdbcType="VARCHAR" />
+    <result column="SUB_KEY" property="subKey" jdbcType="VARCHAR" />
+    <result column="DIS_BANK_ID" property="disBankId" jdbcType="VARCHAR" />
+    <result column="INPUT_USER_ID" property="inputUserId" jdbcType="VARCHAR" />
+    <result column="INPUT_DATE" property="inputDate" jdbcType="VARCHAR" />
+    <result column="META_DICT" property="metaDict" jdbcType="VARCHAR" />
+    <result column="DIS_DATA_DATE" property="disDataDate" jdbcType="VARCHAR" />
+    <result column="DIS_VERIFY_STATUS" property="disVerifyStatus" jdbcType="VARCHAR" />
+    <result column="DIS_WARN_STATUS" property="disWarnStatus" jdbcType="VARCHAR" />
+    <result column="DIS_OPERATE_FLAG" property="disOperateFlag" jdbcType="VARCHAR" />
+    <result column="DIS_DATA_FROM" property="disDataFrom" jdbcType="VARCHAR" />
+    <result column="DIS_STATUS_ALIAS" property="disStatusAlias" jdbcType="VARCHAR" />
+    <result column="DIS_TEMPLATE_ID" property="disTemplateId" jdbcType="VARCHAR" />
+    <result column="DIS_HISTORY_FLAG" property="disHistoryFlag" jdbcType="VARCHAR" />
+    <result column="DIS_STEP_ID" property="disStepId" jdbcType="VARCHAR" />
+    <result column="DIS_USER" property="disUser" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    PRIMARY_KEY, META_CODE, DATA_NAME, DATA_US_NAME, RESP_DEPT, META_TYPE, DATA_DESC, 
+    META_LEN, DECIMAL_DIGITS, IS_NULL, SUB_KEY, DIS_BANK_ID, INPUT_USER_ID, INPUT_DATE, 
+    META_DICT, DIS_DATA_DATE, DIS_VERIFY_STATUS, DIS_WARN_STATUS, DIS_OPERATE_FLAG, DIS_DATA_FROM, 
+    DIS_STATUS_ALIAS, DIS_TEMPLATE_ID, DIS_HISTORY_FLAG, DIS_STEP_ID, DIS_USER
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from DNA2_META_DATA_INF
+    where PRIMARY_KEY = #{primaryKey,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from DNA2_META_DATA_INF
+    where PRIMARY_KEY = #{primaryKey,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="jes.ioc.entity.dna2.Dna2MetaDataInfo" >
+    insert into DNA2_META_DATA_INF (PRIMARY_KEY, META_CODE, DATA_NAME, 
+      DATA_US_NAME, RESP_DEPT, META_TYPE, 
+      DATA_DESC, META_LEN, DECIMAL_DIGITS, 
+      IS_NULL, SUB_KEY, DIS_BANK_ID, 
+      INPUT_USER_ID, INPUT_DATE, META_DICT, 
+      DIS_DATA_DATE, DIS_VERIFY_STATUS, DIS_WARN_STATUS, 
+      DIS_OPERATE_FLAG, DIS_DATA_FROM, DIS_STATUS_ALIAS, 
+      DIS_TEMPLATE_ID, DIS_HISTORY_FLAG, DIS_STEP_ID, 
+      DIS_USER)
+    values (#{primaryKey,jdbcType=VARCHAR}, #{metaCode,jdbcType=VARCHAR}, #{dataName,jdbcType=VARCHAR}, 
+      #{dataUsName,jdbcType=VARCHAR}, #{respDept,jdbcType=VARCHAR}, #{metaType,jdbcType=VARCHAR}, 
+      #{dataDesc,jdbcType=VARCHAR}, #{metaLen,jdbcType=VARCHAR}, #{decimalDigits,jdbcType=VARCHAR}, 
+      #{isNull,jdbcType=VARCHAR}, #{subKey,jdbcType=VARCHAR}, #{disBankId,jdbcType=VARCHAR}, 
+      #{inputUserId,jdbcType=VARCHAR}, #{inputDate,jdbcType=VARCHAR}, #{metaDict,jdbcType=VARCHAR}, 
+      #{disDataDate,jdbcType=VARCHAR}, #{disVerifyStatus,jdbcType=VARCHAR}, #{disWarnStatus,jdbcType=VARCHAR}, 
+      #{disOperateFlag,jdbcType=VARCHAR}, #{disDataFrom,jdbcType=VARCHAR}, #{disStatusAlias,jdbcType=VARCHAR}, 
+      #{disTemplateId,jdbcType=VARCHAR}, #{disHistoryFlag,jdbcType=VARCHAR}, #{disStepId,jdbcType=VARCHAR}, 
+      #{disUser,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="jes.ioc.entity.dna2.Dna2MetaDataInfo" >
+    insert into DNA2_META_DATA_INF
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="primaryKey != null" >
+        PRIMARY_KEY,
+      </if>
+      <if test="metaCode != null" >
+        META_CODE,
+      </if>
+      <if test="dataName != null" >
+        DATA_NAME,
+      </if>
+      <if test="dataUsName != null" >
+        DATA_US_NAME,
+      </if>
+      <if test="respDept != null" >
+        RESP_DEPT,
+      </if>
+      <if test="metaType != null" >
+        META_TYPE,
+      </if>
+      <if test="dataDesc != null" >
+        DATA_DESC,
+      </if>
+      <if test="metaLen != null" >
+        META_LEN,
+      </if>
+      <if test="decimalDigits != null" >
+        DECIMAL_DIGITS,
+      </if>
+      <if test="isNull != null" >
+        IS_NULL,
+      </if>
+      <if test="subKey != null" >
+        SUB_KEY,
+      </if>
+      <if test="disBankId != null" >
+        DIS_BANK_ID,
+      </if>
+      <if test="inputUserId != null" >
+        INPUT_USER_ID,
+      </if>
+      <if test="inputDate != null" >
+        INPUT_DATE,
+      </if>
+      <if test="metaDict != null" >
+        META_DICT,
+      </if>
+      <if test="disDataDate != null" >
+        DIS_DATA_DATE,
+      </if>
+      <if test="disVerifyStatus != null" >
+        DIS_VERIFY_STATUS,
+      </if>
+      <if test="disWarnStatus != null" >
+        DIS_WARN_STATUS,
+      </if>
+      <if test="disOperateFlag != null" >
+        DIS_OPERATE_FLAG,
+      </if>
+      <if test="disDataFrom != null" >
+        DIS_DATA_FROM,
+      </if>
+      <if test="disStatusAlias != null" >
+        DIS_STATUS_ALIAS,
+      </if>
+      <if test="disTemplateId != null" >
+        DIS_TEMPLATE_ID,
+      </if>
+      <if test="disHistoryFlag != null" >
+        DIS_HISTORY_FLAG,
+      </if>
+      <if test="disStepId != null" >
+        DIS_STEP_ID,
+      </if>
+      <if test="disUser != null" >
+        DIS_USER,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="primaryKey != null" >
+        #{primaryKey,jdbcType=VARCHAR},
+      </if>
+      <if test="metaCode != null" >
+        #{metaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="dataName != null" >
+        #{dataName,jdbcType=VARCHAR},
+      </if>
+      <if test="dataUsName != null" >
+        #{dataUsName,jdbcType=VARCHAR},
+      </if>
+      <if test="respDept != null" >
+        #{respDept,jdbcType=VARCHAR},
+      </if>
+      <if test="metaType != null" >
+        #{metaType,jdbcType=VARCHAR},
+      </if>
+      <if test="dataDesc != null" >
+        #{dataDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="metaLen != null" >
+        #{metaLen,jdbcType=VARCHAR},
+      </if>
+      <if test="decimalDigits != null" >
+        #{decimalDigits,jdbcType=VARCHAR},
+      </if>
+      <if test="isNull != null" >
+        #{isNull,jdbcType=VARCHAR},
+      </if>
+      <if test="subKey != null" >
+        #{subKey,jdbcType=VARCHAR},
+      </if>
+      <if test="disBankId != null" >
+        #{disBankId,jdbcType=VARCHAR},
+      </if>
+      <if test="inputUserId != null" >
+        #{inputUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null" >
+        #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="metaDict != null" >
+        #{metaDict,jdbcType=VARCHAR},
+      </if>
+      <if test="disDataDate != null" >
+        #{disDataDate,jdbcType=VARCHAR},
+      </if>
+      <if test="disVerifyStatus != null" >
+        #{disVerifyStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="disWarnStatus != null" >
+        #{disWarnStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="disOperateFlag != null" >
+        #{disOperateFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="disDataFrom != null" >
+        #{disDataFrom,jdbcType=VARCHAR},
+      </if>
+      <if test="disStatusAlias != null" >
+        #{disStatusAlias,jdbcType=VARCHAR},
+      </if>
+      <if test="disTemplateId != null" >
+        #{disTemplateId,jdbcType=VARCHAR},
+      </if>
+      <if test="disHistoryFlag != null" >
+        #{disHistoryFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="disStepId != null" >
+        #{disStepId,jdbcType=VARCHAR},
+      </if>
+      <if test="disUser != null" >
+        #{disUser,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="jes.ioc.entity.dna2.Dna2MetaDataInfo" >
+    update DNA2_META_DATA_INF
+    <set >
+      <if test="metaCode != null" >
+        META_CODE = #{metaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="dataName != null" >
+        DATA_NAME = #{dataName,jdbcType=VARCHAR},
+      </if>
+      <if test="dataUsName != null" >
+        DATA_US_NAME = #{dataUsName,jdbcType=VARCHAR},
+      </if>
+      <if test="respDept != null" >
+        RESP_DEPT = #{respDept,jdbcType=VARCHAR},
+      </if>
+      <if test="metaType != null" >
+        META_TYPE = #{metaType,jdbcType=VARCHAR},
+      </if>
+      <if test="dataDesc != null" >
+        DATA_DESC = #{dataDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="metaLen != null" >
+        META_LEN = #{metaLen,jdbcType=VARCHAR},
+      </if>
+      <if test="decimalDigits != null" >
+        DECIMAL_DIGITS = #{decimalDigits,jdbcType=VARCHAR},
+      </if>
+      <if test="isNull != null" >
+        IS_NULL = #{isNull,jdbcType=VARCHAR},
+      </if>
+      <if test="subKey != null" >
+        SUB_KEY = #{subKey,jdbcType=VARCHAR},
+      </if>
+      <if test="disBankId != null" >
+        DIS_BANK_ID = #{disBankId,jdbcType=VARCHAR},
+      </if>
+      <if test="inputUserId != null" >
+        INPUT_USER_ID = #{inputUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="inputDate != null" >
+        INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      </if>
+      <if test="metaDict != null" >
+        META_DICT = #{metaDict,jdbcType=VARCHAR},
+      </if>
+      <if test="disDataDate != null" >
+        DIS_DATA_DATE = #{disDataDate,jdbcType=VARCHAR},
+      </if>
+      <if test="disVerifyStatus != null" >
+        DIS_VERIFY_STATUS = #{disVerifyStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="disWarnStatus != null" >
+        DIS_WARN_STATUS = #{disWarnStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="disOperateFlag != null" >
+        DIS_OPERATE_FLAG = #{disOperateFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="disDataFrom != null" >
+        DIS_DATA_FROM = #{disDataFrom,jdbcType=VARCHAR},
+      </if>
+      <if test="disStatusAlias != null" >
+        DIS_STATUS_ALIAS = #{disStatusAlias,jdbcType=VARCHAR},
+      </if>
+      <if test="disTemplateId != null" >
+        DIS_TEMPLATE_ID = #{disTemplateId,jdbcType=VARCHAR},
+      </if>
+      <if test="disHistoryFlag != null" >
+        DIS_HISTORY_FLAG = #{disHistoryFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="disStepId != null" >
+        DIS_STEP_ID = #{disStepId,jdbcType=VARCHAR},
+      </if>
+      <if test="disUser != null" >
+        DIS_USER = #{disUser,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where PRIMARY_KEY = #{primaryKey,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="jes.ioc.entity.dna2.Dna2MetaDataInfo" >
+    update DNA2_META_DATA_INF
+    set META_CODE = #{metaCode,jdbcType=VARCHAR},
+      DATA_NAME = #{dataName,jdbcType=VARCHAR},
+      DATA_US_NAME = #{dataUsName,jdbcType=VARCHAR},
+      RESP_DEPT = #{respDept,jdbcType=VARCHAR},
+      META_TYPE = #{metaType,jdbcType=VARCHAR},
+      DATA_DESC = #{dataDesc,jdbcType=VARCHAR},
+      META_LEN = #{metaLen,jdbcType=VARCHAR},
+      DECIMAL_DIGITS = #{decimalDigits,jdbcType=VARCHAR},
+      IS_NULL = #{isNull,jdbcType=VARCHAR},
+      SUB_KEY = #{subKey,jdbcType=VARCHAR},
+      DIS_BANK_ID = #{disBankId,jdbcType=VARCHAR},
+      INPUT_USER_ID = #{inputUserId,jdbcType=VARCHAR},
+      INPUT_DATE = #{inputDate,jdbcType=VARCHAR},
+      META_DICT = #{metaDict,jdbcType=VARCHAR},
+      DIS_DATA_DATE = #{disDataDate,jdbcType=VARCHAR},
+      DIS_VERIFY_STATUS = #{disVerifyStatus,jdbcType=VARCHAR},
+      DIS_WARN_STATUS = #{disWarnStatus,jdbcType=VARCHAR},
+      DIS_OPERATE_FLAG = #{disOperateFlag,jdbcType=VARCHAR},
+      DIS_DATA_FROM = #{disDataFrom,jdbcType=VARCHAR},
+      DIS_STATUS_ALIAS = #{disStatusAlias,jdbcType=VARCHAR},
+      DIS_TEMPLATE_ID = #{disTemplateId,jdbcType=VARCHAR},
+      DIS_HISTORY_FLAG = #{disHistoryFlag,jdbcType=VARCHAR},
+      DIS_STEP_ID = #{disStepId,jdbcType=VARCHAR},
+      DIS_USER = #{disUser,jdbcType=VARCHAR}
+    where PRIMARY_KEY = #{primaryKey,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -28,20 +28,20 @@
             <property name="forceBigDecimals" value="false"/>
         </javaTypeResolver>
         <!--实体类生成信息-->
-        <javaModelGenerator targetPackage="jes.ioc.entity.rcpmis2" targetProject="src/main/java">
+        <javaModelGenerator targetPackage="jes.ioc.entity.dna2" targetProject="src/main/java">
             <property name="enableSubPackages" value="false"/>
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
         <!--mybatis 的xml文件地址-->
-        <sqlMapGenerator targetPackage="jes.ioc.dao.rcpmis2" targetProject="src/main/java">
+        <sqlMapGenerator targetPackage="jes.ioc.dao.dna2" targetProject="src/main/java">
             <property name="enableSubPackages" value="false"/>
         </sqlMapGenerator>
         <!--mybatis的mapper接口-->
-        <javaClientGenerator targetPackage="jes.ioc.dao.rcpmis2" targetProject="src/main/java" type="XMLMAPPER">
+        <javaClientGenerator targetPackage="jes.ioc.dao.dna2" targetProject="src/main/java" type="XMLMAPPER">
             <property name="enableSubPackages" value="false"/>
         </javaClientGenerator>
         <!--要生成的表结构-->
-        <table tableName="RCPMIS2_RPT_FEEDBACK_LOG" domainObjectName="rcpmis2RptFeedbackLog"
+        <table tableName="DNA2_META_DATA_INF" domainObjectName="Dna2MetaDataInfo"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">

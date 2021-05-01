@@ -51,7 +51,7 @@ class Redis02SpringbootApplicationTests {
     @Test
     public void test02(){
         RedisUtil redisUtil = new RedisUtil();
-        redisUtil.lRemove()
+//        redisUtil.lRemove()
     }
 
 }

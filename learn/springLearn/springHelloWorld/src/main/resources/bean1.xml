@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--  配置user ，创建对象  -->
+    <bean class="com.jia.spring5.User" id="user"></bean>
+
+    <!--  使用setter注入   -->
+    <bean id="book" class="com.jia.spring5.Book">
+        <!--使用property 完成属性注入-->
+        <property name="bname" value="Thinking in java"/>
+        <property name="bauthor" value="wendy"/>
+    </bean>
+</beans>

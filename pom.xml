@@ -22,6 +22,9 @@
         <module>go</module>
         <module>learn/SpringbootLearn</module>
         <module>learn/SpringbootLearn/boot-01-helloworld</module>
+        <module>learn/SpringbootLearn/boot5-web-01</module>
+        <module>learn/SpringbootLearn/springboot-helloworld2</module>
+        <module>learn/javaOfBaseSGG</module>
     </modules>
 
     <properties>

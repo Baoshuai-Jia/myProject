@@ -16,6 +16,7 @@
         <module>mq</module>
         <module>httpclient</module>
         <module>httpclient/httpclient-demo</module>
+        <module>quasar</module>
     </modules>
 
     <artifactId>learn</artifactId>

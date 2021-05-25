@@ -25,6 +25,7 @@
         <module>learn/SpringbootLearn/boot5-web-01</module>
         <module>learn/SpringbootLearn/springboot-helloworld2</module>
         <module>learn/javaOfBaseSGG</module>
+        <module>ws</module>
     </modules>
 
     <properties>

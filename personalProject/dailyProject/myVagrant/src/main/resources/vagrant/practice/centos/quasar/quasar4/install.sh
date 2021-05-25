@@ -16,7 +16,7 @@ npm install -g @quasar/cli
 # 安装code-server
 wget https://github.com/cdr/code-server/releases/download/3.4.1/code-server-3.4.1-linux-x86_64.tar.gz # 下载
 tar -xvzf code-server-3.4.1-linux-x86_64.tar.gz # 解压
-mv code-server-3.4.1-linux-x86_64.tar.gz code-server #重命名
+mv code-server-3.4.1-linux-x86_64 code-server #重命名
 cd code-server
 # 后台运行
 screen -S vscode

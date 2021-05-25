@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+	<div id="app">
+		<button-counter title=" title " @clicknow="clicknow"></button-counter>
+		<test></test>
+	</div>
+
+	
+	<script type="text/javascript">
+// 组件基础: 目的复用重复功能
+		Vue.component("button-counter",{
+			props:['title'],
+			data: function(){
+				return {
+					
+				}
+			},
+			template:'<div> <h1>h1 ...</h1></div>',
+			methods:{
+				
+			}
+		})
+		var app = new Vue({
+			el:"#app",
+			data: {
+				message: "",
+				message2: "",
+				checkedNames:[],
+				picked:""
+			},
+			methods:{
+				//自定义的函数
+				clicknow: function(e){
+					console.log(e)
+				}
+			},
+			components:{
+				test:{
+					template:'<div> <h2>h2...</h2></div>'
+				}
+			}
+		});
+	</script>
+	<style>
+		
+	</style>
+</body>
+</html>

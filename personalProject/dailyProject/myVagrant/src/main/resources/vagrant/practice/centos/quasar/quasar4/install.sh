@@ -21,4 +21,12 @@ cd code-server
 # 后台运行
 screen -S vscode
 export PASSWORD="yourpassword" && ./code-server --port 9999 --host 0.0.0.0
+# yum安装java
+yum install java-1.8.0-openjdk* -y
+# yum安装maven
+wget http://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-maven.repo -O /etc/yum.repos.d/epel-apache-maven.repo
+yum -y install apache-maven
+# 安装ayrn
+wget https://dl.yarnpkg.com/rpm/yarn.repo -O /etc/yum.repos.d/yarn.repo
+yum install yarn
 

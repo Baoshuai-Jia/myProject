@@ -1,5 +1,6 @@
 <template>
-  <q-layout view="lHh Lpr lFf">
+
+  <q-layout view="hHh lpR lFf">
     <q-header elevated>
       <q-toolbar>
         <q-btn
@@ -11,26 +12,35 @@
           @click="leftDrawerOpen = !leftDrawerOpen"
         />
 
-        <q-toolbar-title>
-          Quasar App
+        <q-toolbar-title class="absolute-center">
+          Awesome TODO
         </q-toolbar-title>
 
-        <div>Quasar v{{ $q.version }}</div>
       </q-toolbar>
     </q-header>
-
+    <!-- 设置底部显示栏 -->
+    <q-footer>
+      <q-tabs >
+        <q-route-tab to="/todo" icon="list" label="todo"  />
+        <q-route-tab to="/settings" icon="settings" label="settings"   />
+        <q-route-tab to="/demo" icon="settings" label="demo"   />
+      </q-tabs>
+    </q-footer>
+      <!--       :breakpoint="767" 表示折叠到一定程度,会隐藏菜单栏 -->
     <q-drawer
       v-model="leftDrawerOpen"
+      :breakpoint="767"
+      :width="150"
       show-if-above
       bordered
-      content-class="bg-grey-1"
+      content-class="bg-primary"
     >
-      <q-list>
+      <q-list dark>
         <q-item-label
           header
           class="text-grey-8"
         >
-          Essential Links
+          Menu
         </q-item-label>
         <EssentialLink
           v-for="link in essentialLinks"
@@ -51,47 +61,47 @@ import EssentialLink from 'components/EssentialLink.vue'
 
 const linksData = [
   {
-    title: 'Docs',
+    title: 'Todo',
     caption: 'quasar.dev',
-    icon: 'school',
-    link: 'https://quasar.dev'
+    icon: 'list',
+    link: '/todo'
   },
   {
-    title: 'Github',
-    caption: 'github.com/quasarframework',
-    icon: 'code',
-    link: 'https://github.com/quasarframework'
-  },
-  {
-    title: 'Discord Chat Channel',
+    title: 'Settings',
     caption: 'chat.quasar.dev',
-    icon: 'chat',
-    link: 'https://chat.quasar.dev'
+    icon: 'settings',
+    link: '/settings'
   },
   {
-    title: 'Forum',
-    caption: 'forum.quasar.dev',
-    icon: 'record_voice_over',
-    link: 'https://forum.quasar.dev'
+    title: 'demo',
+    caption: 'demo',
+    icon: 'code',
+    link: '/demo'
   },
-  {
-    title: 'Twitter',
-    caption: '@quasarframework',
-    icon: 'rss_feed',
-    link: 'https://twitter.quasar.dev'
-  },
-  {
-    title: 'Facebook',
-    caption: '@QuasarFramework',
-    icon: 'public',
-    link: 'https://facebook.quasar.dev'
-  },
-  {
-    title: 'Quasar Awesome',
-    caption: 'Community Quasar projects',
-    icon: 'favorite',
-    link: 'https://awesome.quasar.dev'
-  }
+  // {
+  //   title: 'Forum',
+  //   caption: 'forum.quasar.dev',
+  //   icon: 'record_voice_over',
+  //   link: 'https://forum.quasar.dev'
+  // },
+  // {
+  //   title: 'Twitter',
+  //   caption: '@quasarframework',
+  //   icon: 'rss_feed',
+  //   link: 'https://twitter.quasar.dev'
+  // },
+  // {
+  //   title: 'Facebook',
+  //   caption: '@QuasarFramework',
+  //   icon: 'public',
+  //   link: 'https://facebook.quasar.dev'
+  // },
+  // {
+  //   title: 'Quasar Awesome',
+  //   caption: 'Community Quasar projects',
+  //   icon: 'favorite',
+  //   link: 'https://awesome.quasar.dev'
+  // }
 ];
 
 export default {
@@ -105,3 +115,17 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+  /* css3响应式布局 达到最小宽度就显示 */
+  @media screen and (min-width: 767px){
+    .q-footer{
+      display: none;
+    }
+  }
+  .q-drawer{
+ /*   .q-router-link--active{
+      color: white !important;
+    } */
+  }
+</style>

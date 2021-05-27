@@ -7,8 +7,14 @@
 	export default {
 	  name: 'test',
 	  props: {
-	    msg: String,
-		default: 'test msg '
+		  title:{
+			  type:String,
+			  default:""
+		  },
+		  content:{
+			  type:String,
+			  default:""
+		  }
 	  },
 	  methods:{
 		  

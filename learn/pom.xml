@@ -17,6 +17,7 @@
         <module>httpclient</module>
         <module>httpclient/httpclient-demo</module>
         <module>quasar</module>
+        <module>frontEnd</module>
     </modules>
 
     <artifactId>learn</artifactId>

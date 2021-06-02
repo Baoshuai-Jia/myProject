@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+<!--    直接拼接：不常用，语法繁琐-->
+  <div>{{firstName}} {{lastName}}</div>
+<!--使用computed计算属性： 方法调用一次，值每变化一次时会再调用一次-->
+  <div>{{fullName}}</div>
+  <div>{{fullName}}</div>
+  <div>{{fullName}}</div>
+  <div>{{fullName}}</div>
+<!--使用methods ： 方法调用4次； 每次使用该方法都会运行里面的代码-->
+  <div>{{getFullName}}</div>
+  <div>{{getFullName}}</div>
+  <div>{{getFullName}}</div>
+  <div>{{getFullName}}</div>
+</div>
+<script src="../js/vue.js"></script>
+
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: 'hello ',
+      firstName:'wendy',
+      lastName:'li'
+    },
+    computed:{
+      fullName:function () {
+        return this.firstName+' '+this.lastName
+      }
+    },
+    methods:{
+      getFullName:function () {
+        return this.firstName+' '+this.lastName
+      }
+    }
+  });
+</script>
+</body>
+</html>

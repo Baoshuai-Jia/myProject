@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button>button1</button>
+<button>button2</button>
+<button>button3</button>
+<button>button4</button>
+<button>button5</button>
+<script>
+  const btns = document.getElementsByTagName("button");
+  // for (var i = 0; i < btns.length; i++) {
+  //   btns[i].addEventListener('click',function () {
+  //     console.log("第"+i+"个按钮被点击")
+  //   })
+  // } 点击第一个按钮，会显示第4个按钮
+
+  //正确 i 有自己的作用域
+  for (let i = 0; i < btns.length; i++) {
+      btns[i].addEventListener('click',function () {
+      console.log("第"+i+"个按钮被点击")
+    })
+  }
+  // 点击第一个按钮，会显示第0个按钮
+</script>
+</body>
+</html>

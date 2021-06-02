@@ -6,8 +6,9 @@ const routes = [
     children: [
       { path: '/todo', component: () => import('pages/Index.vue') },
       { path: '/settings', component: () => import('pages/PageSettings.vue') },
-      { path: '/demo', component: () => import('pages/Demo.vue') }
-      
+      { path: '/demo', component: () => import('pages/Demo.vue') },
+      { path: '/mini', component: () => import('pages/Mini.vue') }
+
     ]
   },
 

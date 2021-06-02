@@ -1,13 +1,11 @@
 <template>
 
-
-
-
 <!-- target="_blank" 配置开启一个新的窗口 -->
   <q-item
     clickable
     tag="a"
     class="text-grey-4"
+    :class="{}"
     :to="link"
   >
     <q-item-section
@@ -29,6 +27,7 @@
 <script>
 export default {
   name: 'EssentialLink',
+
   props: {
     title: {
       type: String,

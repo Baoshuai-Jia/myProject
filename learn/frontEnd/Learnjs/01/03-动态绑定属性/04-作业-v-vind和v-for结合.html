@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+    .active{
+      color: red;
+    }
+  </style>
+</head>
+<body>
+<!--点击哪一项，哪一项变成红色的-->
+<div id="app">
+  <ul>
+    <li v-for="(movie,index) in movies" v-bind:class="getColor(index)" @click="clickColor(index)">{{movie}}</li>
+  </ul>
+</div>
+<script src="../js/vue.js"></script>
+
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: 'hello ',
+      movies:['海王','进击的巨人','火影忍者'],
+      isActive:[false,true,false],
+      test:false
+    },
+    methods:{
+      getColor:function (index) {
+        console.log(this.isActive[index])
+        return {active:this.isActive[index]}
+      },
+      clickColor:function (index) {
+        console.log(index)
+        this.test= ! this.test;
+        console.log(this.isActive[index])
+        this.isActive[index]=!this.isActive[index];
+      }
+    }
+  });
+</script>
+</body>
+</html>

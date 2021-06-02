@@ -10,7 +10,7 @@
   <h2>{{message}}</h2>
   <h1>{{name}}</h1>
 </div>
-
+div#app
 <script src="../js/vue.js"></script>
 <script>
   //ES6 中使用let（变量）/const（常量） 定义变量/常量
@@ -20,7 +20,22 @@
    data:{//用来定义数据
      message: '你好，wendy',
      name: 'wendy'
-   }
+   },
+     methods:{
+     //  生命周期
+        beforeCreate: function () {
+            console.log("beforeCreate")
+        },
+        created: function () {
+            //常用
+            //场景：创建好对象后，请求数据放入data里
+            console.log("created")
+        },
+         mounted: function () {
+             console.log("mounted")
+         }
+     //  生命周期
+     }
  });
  //原生js 一步一步写的代码
   //叫做 编程范式：命令式编程

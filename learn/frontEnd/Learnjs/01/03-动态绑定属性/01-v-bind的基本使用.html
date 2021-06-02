@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+<!--  错误的写法-->
+<!--  <img src="{{imgUrl}}">-->
+<!--  正确用法：使用v-bind指令-->
+  <img v-bind:src="imgUrl">
+<!--    语法糖写法-->
+  <img :src="imgUrl">
+</div>
+<script src="../js/vue.js"></script>
+
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: 'hello ',
+      imgUrl:'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fwx4.sinaimg.cn%2Flarge%2F909e3b31ly4gq2q4kxi03j21hc0u0doa.jpg&refer=http%3A%2F%2Fwx4.sinaimg.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1625149973&t=9253d714386d10b3eef168ee2472145a'
+    }
+  });
+</script>
+</body>
+</html>

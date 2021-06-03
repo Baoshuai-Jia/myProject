@@ -17,7 +17,7 @@
         square
         @click="drawerRight = !drawerRight"
         round dense
-        v-drag
+        v-drag="leftDrawerOpenWidth+rightDrawerOpenWidth"
       />
     </q-page-sticky>
 
@@ -26,7 +26,7 @@
       v-model="drawerRight"
       show-if-above
       bordered
-      :width="200"
+      :width="rightDrawerOpenWidth"
       :breakpoint="500"
 
       content-class="bg-blue-1"
@@ -243,6 +243,7 @@ export default {
       drawerRight:true,
       fixedHead:false,
       leftDrawerOpenWidth:150,
+      rightDrawerOpenWidth:200,
       ageStickyPosition:[5,38],
       styleSettingsData: {
         themeColorSetting: [
@@ -319,12 +320,17 @@ export default {
       inserted:function(el,binding){
         el.onmousedown=function(e){
           e.stopPropagation();
+          console.log("window.innerWidth"+window.innerWidth)
           let disx = e.pageX - el.offsetLeft;
           let disy = e.pageY - el.offsetTop;
+          // if (!((window.innerWidth- binding.value + (e.pageX - disx))<1)){
           document.onmousemove = function (e){
             e.preventDefault();
             el.style.left = e.pageX - disx+'px';
             el.style.top = e.pageY - disy+'px';
+            if ((window.innerWidth- binding.value + (e.pageX - disx))<1){
+              el.style.left = -(window.innerWidth- binding.value)+'px';
+            }
           }
           document.onmouseup = function(){
             document.onmousemove = document.onmouseup = null;

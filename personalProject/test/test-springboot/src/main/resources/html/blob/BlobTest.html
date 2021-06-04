@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--同一个域可以直接下载-->
+<a download href="xiaowu.png">下载本服务器的图片</a>
+<!--跨域不可以下载，会直接跳到该连接-->
+<a download href="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fwx4.sinaimg.cn%2Flarge%2F909e3b31ly4gq2q4kxi03j21hc0u0doa.jpg&refer=http%3A%2F%2Fwx4.sinaimg.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1625383934&t=fa081f17972cc9cde5fea6ffe1b567f5">下载远程服务器的图片</a>
+<img src="">
+<script type="text/javascript">
+    function download(url){
+        let xhr = new XMLHttpRequest();//
+        xhr.open("get",url);
+        xhr.responseType="blob";
+        xhr.send();
+        xhr.onload = function () {
+            const fileBlob = xhr.response;
+            console.log(fileBlob);
+        //    将blob转换成url
+            const fileUrl = URL.createObjectURL(fileBlob);
+            console.log(fileUrl)
+            // document.querySelector("img").setAttribute("src",fileUrl);//给img的src赋值
+            const elementA = document.createElement('a');
+            elementA.setAttribute('download','');
+            elementA.setAttribute('href',fileUrl);
+            elementA.innerHTML='下载';
+            document.body.appendChild(elementA);
+
+        }
+    }
+    const imgUrl = "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fwx4.sinaimg.cn%2Flarge%2F909e3b31ly4gq2q4kxi03j21hc0u0doa.jpg&refer=http%3A%2F%2Fwx4.sinaimg.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1625383934&t=fa081f17972cc9cde5fea6ffe1b567f5";
+    download(imgUrl);
+</script>
+</body>
+</html>

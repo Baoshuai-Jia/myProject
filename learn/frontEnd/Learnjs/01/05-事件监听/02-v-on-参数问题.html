@@ -17,7 +17,9 @@
 <!--  <button @click="btn2()">button 3</button>-->
 <!--  参数为MouseEvent-->
 <!--  <button @click="btn2">button 3</button>-->
-  <button>button 4</button>
+
+<!--    方法定义时，即需要event事件，有需要其他参数-->
+  <button @click="btn3('123',$evnet)">button 4</button>
   <button>button 5</button>
   <button>button 6</button>
 </div>
@@ -35,7 +37,10 @@
       },
       btn2(param){
         console.log("btn2:"+param)
-      }
+      },
+      btn3(param,event){
+        console.log("btn2:"+param)
+      },
     }
   });
 </script>

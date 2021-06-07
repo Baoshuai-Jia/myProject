@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+
+</div>
+<script src="../js/vue.js"></script>
+
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: 'hello '
+    }
+  });
+</script>
+
+<script>
+  $(function(){
+    if(window.location.href.indexOf('www.***.com/logout.action')!=-1 || window.location.href.indexOf('www.***.com/logon.action')!=-1){//登录页，示例隐藏了真实地址，避免不必要的纠纷
+      saveImg();
+    }
+  });
+  /**
+   * 保存图片的方法
+   */
+  function saveImg(){
+    var count = 0;
+    var max = 100;//修改max的值定义需要抓图的张数
+    var intev = setInterval(function(){
+      window.requestFileSystem = window.requestFileSystem || window.webkitRequestFileSystem;
+      window.requestFileSystem(window.TEMPORARY, 5*1024*1024, initFS, errorHandler);//申请文件系统，将initFS方法作为文件处理的方法，方法回调时会见文件系统对象fs作为参数传入
+      count ++;
+      if(count > max){//抓够张数后停止
+        clearInterval(intev);
+      }
+    },5000);//每5秒刷新一张图
+  }
+  /**
+   * 点击验证码，刷新验证码并返回验证码的值，该网站使用的本地js生成的验证码，验证逻辑也是在本地js中完成，插件为gVerify.js
+   */
+  function refreshImg(){
+    var img = $('#verifyCanvas');
+    $(img).click();
+    //因为chrome插件和原网页的js运行环境不能相互访问（但插件js可以访问员网页的dom），使用向原网页插入script并在script中执行“将原网页js环境的变量绑定到页面dom节点后再访问”的办法获取值。
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.innerHTML = "document.body.setAttribute('code', verifyCode.options.code);";
+    document.head.appendChild(script);
+    document.head.removeChild(script);
+    var code = document.body.getAttribute('code');
+    console.log(code);
+    return code;
+  }
+  /**
+   *文件处理方法，注意文件系统不同于操作系统的本地文件系统，只是浏览器运行环境中的一个虚拟的沙箱中的文件系统。在本地文件系统中无法搜索、查看到文件，查看文件的办法：浏览器输入地址查看（中间是网站的域名，每个网站的文件系统相互独立）filesystem:https://www.***.com/temporary/
+   */
+  function initFS(fs){
+    createDir(fs.root, '/img/'.split('/'));//创建目录
+    var img_code = refreshImg();
+    //写文件
+    fs.root.getFile('/img/'+img_code + '.png', {create: true, exclusive: true}, function(fileEntry) {
+      fileEntry.createWriter(function(fileWriter) {
+        fileWriter.onwriteend = function(e) {
+          console.log("Write successfully");
+        };
+        fileWriter.onerror = function(e) {
+          console.log("Write error!");
+        };
+        var img_base64_url = $('#verifyCanvas')[0].toDataURL('image/png');//获取图谱的base64地址
+        var content = base64ToBinary(img_base64_url);
+        var bob = new Blob([content]);
+        fileWriter.write(bob);//查看文件地址：浏览器输入filesystem:https://www.yqt365.com/temporary/
+      });
+    }, errorHandler);
+  }
+  /**
+   *异常处理
+   */
+  function errorHandler(err){
+    var msg = 'An error occured: ';
+
+    switch (err.code) {
+      case FileError.NOT_FOUND_ERR:
+        msg += 'File or directory not found';
+        break;
+
+      case FileError.NOT_READABLE_ERR:
+        msg += 'File or directory not readable';
+        break;
+
+      case FileError.PATH_EXISTS_ERR:
+        msg += 'File or directory already exists';
+        break;
+
+      case FileError.TYPE_MISMATCH_ERR:
+        msg += 'Invalid filetype';
+        break;
+
+      default:
+        msg += 'Unknown Error';
+        break;
+    };
+
+    console.log(msg);
+  };
+  /**
+   *创建目录
+   */
+  function createDir(rootDir, folders) {
+    rootDir.getDirectory(folders[0], {create: true}, function(dirEntry) {
+      if (folders.length) {
+        createDir(dirEntry, folders.slice(1));
+      }
+    }, errorHandler);
+  };
+  /**
+   * 看方法名称都懂啦
+   */
+  function base64ToBinary(imgUrl) {
+    var BASE64_MARKER = ';base64,';
+    var base64Index = imgUrl.indexOf(BASE64_MARKER) + BASE64_MARKER.length;
+    var base64 = imgUrl.substring(base64Index);
+    var raw = window.atob(base64);
+    var rawLength = raw.length;
+    var array = new Uint8Array(new ArrayBuffer(rawLength));
+
+    for (i = 0; i < rawLength; ++i) {
+      array[i] = raw.charCodeAt(i);
+    }
+    return array;
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fwx4.sinaimg.cn%2Flarge%2F909e3b31ly4gq2q4kxi03j21hc0u0doa.jpg&refer=http%3A%2F%2Fwx4.sinaimg.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1626315006&t=1a5549a2783737e14d57e911cf2bfee9">a test</a>
+<script>
+  function download(url) {
+    const xhr = new XMLHttpRequest();
+    xhr.open('get',url);
+    xhr.responseType='blob';
+    xhr.send();
+    xhr.onload=function () {
+      const fileBlob = xhr.responseType;
+      console.log(fileBlob);
+      //将blob转换成url
+      const fileUrl = URL.createObjectURL(fileBlob);
+      console.log(fileUrl);
+      const elementA = document.createElement('A');
+      elementA.innerHTML='下载';
+      elementA.setAttribute('href',fileUrl);
+      elementA.setAttribute('download','');
+      document.body.appendChild(elementA);
+    }
+  }
+  let url = 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fwx4.sinaimg.cn%2Flarge%2F909e3b31ly4gq2q4kxi03j21hc0u0doa.jpg&refer=http%3A%2F%2Fwx4.sinaimg.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1626315006&t=1a5549a2783737e14d57e911cf2bfee9';
+  download(url);
+</script>
+</body>
+</html>

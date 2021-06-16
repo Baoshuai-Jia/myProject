@@ -20,35 +20,20 @@
   window.writer = fileStream.getWriter()
   $start1.onclick = () => {
     // const url = 'http://127.0.0.1:8080/upload'
-    // const url = 'https://d8d913s460fub.cloudfront.net/videoserver/cat-test-video-320x240.mp4'
+    const url = 'https://d8d913s460fub.cloudfront.net/videoserver/cat-test-video-320x240.mp4'
 
     fetch(url).then(res => {
       const readableStream = res.body
-      // teeStream(readableStream);
-      // if (window.WritableStream && readableStream.pipeTo) {
-      //   return  readableStream.pipeTo(fileStream)
-      //           .then(() => {
-      //             console.log('done writing');
-      //             console.log('done writing');
-      //           })
-      // }
+      if (window.WritableStream && readableStream.pipeTo) {
+        return  readableStream.pipeTo(fileStream)
+                .then(() => {
+                  console.log('done writing');
+                  console.log('done writing');
+                })
+      }
 
 
-      const reader = res.body.getReader()
-      console.log(res.value)
-      const pump = () => reader.read()
-              .then(res => {
-                if(res.done){
-                  // writer.close();
-                  console.log('close');
-                }else {
-                  writer.write(res.value).then(pump);
-                  console.log('write');
-                }
-              })
 
-      pump()
-      console.log(res)
     })
   };
   $end1.onclick = () => {

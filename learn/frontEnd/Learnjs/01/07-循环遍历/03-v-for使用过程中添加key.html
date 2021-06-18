@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>v-for使用过程中添加key.html</title>
+</head>
+<body>
+
+<div id="app">
+  <ul>
+    <li v-for="letter in letters" :key="letter">{{letter}}</li>
+  </ul>
+</div>
+<script src="../js/vue.js"></script>
+
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: 'hello ',
+      letters:['A','B','C','D','E']
+    }
+  });
+</script>
+</body>
+</html>

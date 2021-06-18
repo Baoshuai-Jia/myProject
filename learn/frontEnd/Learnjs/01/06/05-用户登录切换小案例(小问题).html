@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>05-用户登录切换小案例(小问题)</title>
+</head>
+<body>
+
+<div id="app">
+  <span v-if="isUser">
+    <lable for="userName">用户账户</lable>
+    <input type="text" id="userName" placeholder="用户账户" key="userName">
+  </span>
+  <span v-else>
+    <lable for="email">用户邮箱</lable>
+    <input type="text" id="email" placeholder="用户邮箱" key="email">
+  </span>
+<!--  切换后上面的输入框中的内容还存在，怎么删除呢？
+      key="email" 加上key 值一样复用，不一样不复用-->
+  <button @click="switchType">切换类型(使用方法)</button>
+  <button @click="isUser = !isUser">切换类型(使用表达式)</button>
+</div>
+<script src="../js/vue.js"></script>
+
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: 'hello ',
+      isUser: true
+    },
+    methods:{
+      switchType(){
+        this.isUser = ! this.isUser;
+      }
+    }
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>04-数组的哪些方法是响应式的.html</title>
+</head>
+<body>
+
+<div id="app">
+  <ul>
+    <li v-for="letter in letters" :key="letter">{{letter}}</li>
+  </ul>
+  <button @click="btnClick">按钮</button>
+</div>
+<script src="../js/vue.js"></script>
+
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: 'hello ',
+      letters:['A','B','C','D','E']
+    },
+    methods:{
+      btnClick(){
+      //  响应式
+      //  1. push方法
+      //   this.letters.push('aaa');
+
+      //  2. pop 删除数组中得最后一个元素
+      //   this.letters.pop();
+
+      //3。shift ： 删除数组中的第一个元素
+      //   this.letters.shift();
+
+      //  4 unshift ： 在数组的最前面添加元素
+      //   this.letters.unshift('aaa','bbb');
+
+      //  5 splice :删除元素、插入元素、替换元素
+      //   this.letters.splice(2,1);//删除第三个元素
+      // this.letters.splice(2,0,'g');//在第三个元素"前"添加元素
+      // this.letters.splice(2,1,'g');//第三个元素删除，放入 'g'，即替换操作
+
+      //6。 sort : 排序
+      // this.letters.sort();
+
+      //  7。 reverse ：反转
+      //   this.letters.reverse();
+
+
+
+      //非响应式
+      //  2.通过索引值修改数组中的元素;非响应式，但是触发其他响应式方法的时候，可以生效
+      //   this.letters[0]='bbbbb';
+      //   this.letters.splice(0,1,'bbbbb');
+      //  set(要修改的对象，索引，修改后的值)
+        Vue.set(this.letters,0,'bbbb')
+
+
+
+
+      }
+    }
+  });
+</script>
+</body>
+</html>
